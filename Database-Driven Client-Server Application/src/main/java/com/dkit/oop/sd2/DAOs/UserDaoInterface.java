@@ -13,5 +13,8 @@ public interface UserDaoInterface {
 
     //Feature 2 – Find and Display (a single) Entity by Key e.g. findPlayerById( id ) – return a single entity and display its contents.
     public User findUserById(int id) throws DaoException;
+
+    //Feature 3 – Delete an Entity by key e.g. deletePlayerById( id ) – remove entity from database
+    void deleteUserById(int id) throws DaoException; // void means no return value
 }
 
