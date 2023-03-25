@@ -33,7 +33,7 @@ public class App
             user.getAge(), user.getEmail(), user.getWebsite());
             }
 
-            
+
             // Call Feature 2: Find a User by ID
             System.out.println("\n findUserById(1)");
             User user = IUserDao.findUserById(1);
@@ -47,6 +47,12 @@ public class App
             } else {
                 System.out.println("User with ID 1 not found.");
             }
+
+            // Call Feature 3: Delete User by ID
+        int idToDelete = 2;  // specify the ID of the user to delete
+        IUserDao.deleteUserById(idToDelete);
+        System.out.println("User with ID " + idToDelete + " has been deleted.");
+
 
 
         }
