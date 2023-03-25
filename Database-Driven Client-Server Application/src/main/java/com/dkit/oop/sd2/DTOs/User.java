@@ -1,4 +1,4 @@
-package CA6.DTOs;
+package com.dkit.oop.sd2.DTOs;
 
 public class User {
 

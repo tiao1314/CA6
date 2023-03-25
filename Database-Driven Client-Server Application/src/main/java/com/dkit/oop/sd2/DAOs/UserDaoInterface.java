@@ -1,7 +1,9 @@
-package CA6.DAOs;
+package com.dkit.oop.sd2.DAOs;
 
-import CA6.DTOs.User;
-import CA6.Exceptions.DaoException;
+
+
+import com.dkit.oop.sd2.DTOs.User;
+import com.dkit.oop.sd2.Exceptions.DaoException;
 import java.util.List;
 
 public interface UserDaoInterface {
@@ -12,3 +14,4 @@ public interface UserDaoInterface {
     
     
 }
+

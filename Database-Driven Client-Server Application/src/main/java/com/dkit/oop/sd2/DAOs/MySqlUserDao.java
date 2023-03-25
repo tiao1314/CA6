@@ -1,13 +1,17 @@
-package CA6.DAOs;
+package com.dkit.oop.sd2.DAOs;
 
-import CA6.DTOs.User;
-import CA6.Exceptions.DaoException;
+
+
+
+import com.dkit.oop.sd2.DTOs.User;
+import com.dkit.oop.sd2.Exceptions.DaoException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
     
@@ -29,11 +33,12 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
                 int age = rs.getInt("age");
                 String email = rs.getString("email");
                 String website = rs.getString("website");
+                // create a new developer object to store the values from the database
                 User user = new User(id, firstName, lastName, age, email, website);
                 users.add(user);
             }
-        } catch (SQLException e) {
-            throw new DaoException("Error finding all developers: " + e.getMessage());
+        } catch (SQLException ex) {
+            throw new DaoException("Error finding all developers: " + ex.getMessage());
         } finally {
             try {
                 if (rs != null) {
@@ -53,3 +58,4 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
     }
     
 }
+
