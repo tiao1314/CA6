@@ -41,12 +41,15 @@ public class App
             }
             else
             {
-                for (User user : users)
-                {
-                    System.out.println("User: " + user.toString());
-                }
+                System.out.format("%-5s%-15s%-15s%-5s%-35s%-25s\n",
+        "ID", "First Name", "Last Name", "Age", "Email", "Website");
+    for (User user : users) {
+        System.out.format("%-5s%-15s%-15s%-5s%-35s%-25s\n",
+            user.getId(), user.getFirstName(), user.getLastName(),
+            user.getAge(), user.getEmail(), user.getWebsite());
             }
         }
+    }
         catch (DaoException e)
         {
             e.printStackTrace();
