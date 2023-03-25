@@ -76,11 +76,24 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
                 return null;
             }
         } catch (SQLException e) {
-            throw new DaoException("Error finding developers with ID " + id);
+            throw new DaoException("Error finding developers with ID " + id + ": " + e.getMessage());
         }
     }
     
-
+    @Override
+    public void deleteUserById(int id) throws DaoException {
+        String sql = "DELETE FROM developers WHERE id = ?";
+        try (Connection conn = this.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new DaoException("User with ID " + id + " does not exist.");
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Error deleting user with ID " + id + ": " + e.getMessage());
+        }
+    }
     
 }
 
