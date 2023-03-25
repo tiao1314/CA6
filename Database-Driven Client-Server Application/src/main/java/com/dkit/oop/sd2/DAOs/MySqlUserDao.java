@@ -56,6 +56,12 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
         }
         return users;
     }
+
+    @Override
+public User findUserById(int id) throws DaoException {
+    String sql = "SELECT * FROM User WHERE id = ?";
+    
+
     
 }
 
