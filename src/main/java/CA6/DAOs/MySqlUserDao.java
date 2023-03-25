@@ -17,7 +17,24 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
         PreparedStatement ps = null;
         ResultSet rs = null;
         List<User> users = new ArrayList<>();
-        
-        
+        try {
+            con = this.getConnection();
+            String query = "SELECT * FROM users";
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String firstName = rs.getString("first_name");
+                String lastName = rs.getString("last_name");
+                int age = rs.getInt("age");
+                String email = rs.getString("email");
+                String website = rs.getString("website");
+                User user = new User(id, firstName, lastName, age, email, website);
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            
+    }
     
+}
 }
