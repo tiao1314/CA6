@@ -33,8 +33,23 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
                 users.add(user);
             }
         } catch (SQLException e) {
-            
+            throw new DaoException("Error finding all users: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                throw new DaoException("Error closing resources: " + ex.getMessage());
+            }
+        }
+        return users;
     }
     
-}
 }
