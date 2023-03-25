@@ -9,10 +9,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class MySqlUserDao extends MySqlDao implements UserDaoInterface
-{
-
+public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
     
-
+    @Override
+    public List<User> findAllUsers() throws DaoException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<User> users = new ArrayList<>();
+        
+        
+    
 }
