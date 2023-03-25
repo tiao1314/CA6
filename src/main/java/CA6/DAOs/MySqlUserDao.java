@@ -19,7 +19,7 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
         List<User> users = new ArrayList<>();
         try {
             con = this.getConnection();
-            String query = "SELECT * FROM users";
+            String query = "SELECT * FROM developers";
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -33,7 +33,7 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
                 users.add(user);
             }
         } catch (SQLException e) {
-            throw new DaoException("Error finding all users: " + e.getMessage());
+            throw new DaoException("Error finding all developers: " + e.getMessage());
         } finally {
             try {
                 if (rs != null) {
