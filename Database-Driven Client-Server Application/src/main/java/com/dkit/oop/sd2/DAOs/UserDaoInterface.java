@@ -16,5 +16,8 @@ public interface UserDaoInterface {
 
     //Feature 3 – Delete an Entity by key e.g. deletePlayerById( id ) – remove entity from database
     void deleteUserById(int id) throws DaoException; // void means no return value
+
+    //Feature 4 – Insert an Entity in the database using DAO (gather data from user, store in DTO object, pass into method insertPlayer ( Player ), return new entity including assigned auto-id.
+    
 }
 
