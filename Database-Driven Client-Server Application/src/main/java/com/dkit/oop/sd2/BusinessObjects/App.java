@@ -24,9 +24,14 @@ public class App {
             System.out.println("4. Insert an Entity in the database using DAO");
             System.out.println("5. List entities using a filter");
             System.out.println("6. Create a Cache using a HashSet that will maintain the ids of all players");
-            System.out.println("7.  Find a single Entity by Key as a JSON String");
-            System.out.println("8. Exit");
-            System.out.print("\nEnter your choice (1-8): ");
+            System.out.println("7. Retrieve all Entities as a JSON String");
+            System.out.println("8. Find a single Entity by Key as a JSON String");
+            System.out.println("9. Display Entity by Id”");
+            System.out.println("10.Display all Entities ");
+            System.out.println("11.Add an Entity");
+            System.out.println("12.Delete Entity by ID");
+            System.out.println("13.Exit");
+            System.out.print("\nEnter your choice (1-13): ");
             choice = scanner.nextInt();
 
             switch (choice) {
@@ -118,14 +123,30 @@ public class App {
                     
                     break;
                 case 8:
-                    System.out.println("Quited Successfully");
+                    
+                    break;
+                case 9:
+                        
+                        break;
+
+                case 10:
+                    
+                    break;
+                case 11:
+                        
+                        break;  
+                case 12:
+                        
+                        break;
+                case 13:
+                System.out.println("Quited Successfully");
                     break;
 
                 default:
                     System.out.println("Invalid choice");
             }
 
-        } while (choice != 8);
+        } while (choice != 13);
     }
 
 }
