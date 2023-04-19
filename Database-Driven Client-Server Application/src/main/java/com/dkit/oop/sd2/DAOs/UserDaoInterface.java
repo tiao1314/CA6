@@ -5,6 +5,8 @@ package com.dkit.oop.sd2.DAOs;
 import com.dkit.oop.sd2.DTOs.User;
 import com.dkit.oop.sd2.Exceptions.DaoException;
 import java.util.List;
+import java.util.Comparator;
+
 
 public interface UserDaoInterface {
     
@@ -19,5 +21,10 @@ public interface UserDaoInterface {
 
     //Feature 4 – Insert an Entity in the database using DAO (gather data from user, store in DTO object, pass into method insertPlayer ( Player ), return new entity including assigned auto-id.
     User insertUser(User user) throws DaoException;
+    
+    //Feature 5 – List entities using a filter e.g. findPlayerUsingFilter( playerAgeComparator )
+    //List<User> findUserUsingFilter(Comparator<User> comparator) throws DaoException;
+
+    
 }
 
