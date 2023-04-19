@@ -6,6 +6,7 @@ import com.dkit.oop.sd2.DTOs.User;
 import com.dkit.oop.sd2.Exceptions.DaoException;
 import java.util.List;
 import java.util.Comparator;
+import java.util.HashSet;
 
 
 public interface UserDaoInterface {
@@ -25,6 +26,9 @@ public interface UserDaoInterface {
     //Feature 5 – List entities using a filter e.g. findPlayerUsingFilter( playerAgeComparator )
     //List<User> findUserUsingFilter(Comparator<User> comparator) throws DaoException;
 
-    
+    //Feature 6 - Create a Cache using a HashSet that will maintain the ids of all users and
+    //refactor the findUserById() method so that it checks for the existence of a user id before
+    //it makes a query to the SQL database.
+    //HashSet<Integer> createCache() throws DaoException;
 }
 
