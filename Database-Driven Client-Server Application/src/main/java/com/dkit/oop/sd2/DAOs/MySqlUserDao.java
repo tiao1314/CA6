@@ -3,14 +3,14 @@ package com.dkit.oop.sd2.DAOs;
 
 
 
-import com.dkit.oop.sd2.DTOs.User;
-import com.dkit.oop.sd2.Exceptions.DaoException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+    import com.dkit.oop.sd2.DTOs.User;
+    import com.dkit.oop.sd2.Exceptions.DaoException;
+    import java.sql.Connection;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
+    import java.util.ArrayList;
+    import java.util.List;
 
 
 public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
@@ -95,6 +95,35 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
         }
     }
 
+    @Override
+    public User insertUser(User user) throws DaoException {
+        String sql = "INSERT INTO developers (first_name, last_name, age, email, website) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = this.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, user.getFirstName());
+            ps.setString(2, user.getLastName());
+            ps.setInt(3, user.getAge());
+            ps.setString(4, user.getEmail());
+            ps.setString(5, user.getWebsite());
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new DaoException("Error inserting user.");
+            }
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    user.setId(generatedKeys.getInt(1));
+                } else {
+                    throw new DaoException("Error inserting user.");
+                }
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Error inserting user: " + e.getMessage());
+        }
+        return user;
+    }
+
+    
+    
     
     
 }

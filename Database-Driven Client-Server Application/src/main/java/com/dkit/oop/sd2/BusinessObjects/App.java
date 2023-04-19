@@ -69,6 +69,8 @@ public class App {
                         e.printStackTrace();
                     }
                     break;
+
+
                 case 3:
                     System.out.print("Enter the ID of the User to delete: ");
                     int idToDelete = scanner.nextInt();
@@ -79,9 +81,33 @@ public class App {
                         e.printStackTrace();
                     }
                     break;
-                case 4:
-                    
+
+
+                    case 4:
+
+
+                    User user = new User(0, "", "", 0, "", "");
+                    scanner.nextLine(); // clear scanner buffer
+                    System.out.print("Enter first name: ");
+                    user.setFirstName(scanner.nextLine());
+                    System.out.print("Enter last name: ");
+                    user.setLastName(scanner.nextLine());
+                    System.out.print("Enter age: ");
+                    user.setAge(scanner.nextInt());
+                    scanner.nextLine(); // clear scanner buffer
+                    System.out.print("Enter email: ");
+                    user.setEmail(scanner.nextLine());
+                    System.out.print("Enter website: ");
+                    user.setWebsite(scanner.nextLine());
+                    try {
+                        IUserDao.insertUser(user);
+                        System.out.println("User inserted successfully.");
+                    } catch (DaoException e) {
+                        e.printStackTrace();
+                    }
                     break;
+                    
+                    
                 case 5:
                     
                     break;
