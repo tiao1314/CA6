@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DaoException {
 
         UserDaoInterface IUserDao = new MySqlUserDao();
 
@@ -120,7 +120,10 @@ public class App {
                     
                     break;
                 case 7:
-                    
+                System.out.println("=========================================");
+                System.out.println("All Users as JSON String");
+                IUserDao.findAllUsersJson();
+                System.out.println("=========================================");    
                     break;
                 case 8:
                     

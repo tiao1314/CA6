@@ -30,5 +30,10 @@ public interface UserDaoInterface {
     //refactor the findUserById() method so that it checks for the existence of a user id before
     //it makes a query to the SQL database.
     //HashSet<Integer> createCache() throws DaoException;
+
+    //Feature 7 - Retrieve all Entities as a JSON String e.g. findAllPlayersJson()
+    public void findAllUsersJson ()throws DaoException;
+
+
 }
 

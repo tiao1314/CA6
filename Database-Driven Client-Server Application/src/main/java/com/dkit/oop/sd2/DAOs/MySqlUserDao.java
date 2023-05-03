@@ -5,7 +5,10 @@ package com.dkit.oop.sd2.DAOs;
 
     import com.dkit.oop.sd2.DTOs.User;
     import com.dkit.oop.sd2.Exceptions.DaoException;
-    import java.sql.Connection;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.sql.Connection;
     import java.sql.PreparedStatement;
     import java.sql.ResultSet;
     import java.sql.SQLException;
@@ -125,6 +128,22 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
         return user;
     }
 
+    @Override
+    public void findAllUsersJson() throws DaoException{
+
+        Gson gson = new GsonBuilder().create();
+        try {
+            System.out.println(gson.toJson(findAllUsers()));
+        } catch (DaoException e) {
+
+            throw new DaoException("Error finding all users: " + e.getMessage());
+        }
+        
+        
+        
+    }
+
+    
     
     
 }
