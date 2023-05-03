@@ -126,7 +126,11 @@ public class App {
                 System.out.println("=========================================");    
                     break;
                 case 8:
-                    
+                System.out.println("=========================================");
+                System.out.println("Input a Id to find a User as JSON String");
+                IUserDao.findUserByIdJson(scanner.nextInt());
+                System.out.println("=========================================");
+
                     break;
                 case 9:
                         

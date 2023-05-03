@@ -34,6 +34,8 @@ public interface UserDaoInterface {
     //Feature 7 - Retrieve all Entities as a JSON String e.g. findAllPlayersJson()
     public void findAllUsersJson ()throws DaoException;
 
+    //Feature 8 – Find a single Entity by Key as a JSON String e.g. findPlayerByIdJson( id ) [consider what to return if there is no match?]
+    public void findUserByIdJson(int id) throws DaoException;
 
 }
 

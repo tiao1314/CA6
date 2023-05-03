@@ -138,11 +138,19 @@ public class MySqlUserDao extends MySqlDao implements UserDaoInterface {
 
             throw new DaoException("Error finding all users: " + e.getMessage());
         }
-        
-        
-        
+         
     }
 
+    @Override
+    public void findUserByIdJson(int id) throws DaoException{
+        Gson gson = new GsonBuilder().create();
+        try {
+            System.out.println(gson.toJson(findUserById(id)));
+        } catch (DaoException e) {
+
+            throw new DaoException("Error finding user by id: " + e.getMessage());
+        }
+    }
     
     
     
